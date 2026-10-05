@@ -14,6 +14,9 @@
     @foreach ($posts as $post)
         <article class="p-4 shadow-lg">
             <a href="/posts/{{ $post->id }}">
+                @if ($post->image_path)
+                    <img src="{{ Storage::url($post->image_path) }}" alt="{{ $post->title }}" class="w-full h-48 object-cover rounded mb-2">
+                @endif
                 <flux:text class="mt-4">{{ $post->created_at->format('y/m/d') }}</flux:text>
                 <flux:heading size="lg" level="2">{{ $post->title }}</flux:heading>
                 <flux:text class="mt-2">{{ Str::limit($post->body, 100) }}</flux:text>

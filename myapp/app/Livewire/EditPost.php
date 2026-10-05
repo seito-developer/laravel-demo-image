@@ -6,9 +6,12 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class EditPost extends Component
 {
+    use WithFileUploads;
+
     public Post $post;
 
     #[Validate('required|min:3')]
@@ -16,6 +19,9 @@ class EditPost extends Component
 
     #[Validate('required')]
     public $body = '';
+
+    #[Validate('nullable|image|max:2048')]
+    public $image;
 
     public function mount(Post $post) {
         if($post->user_id !== Auth::id()){
@@ -34,10 +40,16 @@ class EditPost extends Component
             abort(403);
         }
 
-        $this->post->update([
+        $data = [
             'title' => $this->title,
             'body' => $this->body,
-        ]);
+        ];
+
+        if ($this->image) {
+            $data['image_path'] = $this->image->store('posts');
+        }
+
+        $this->post->update($data);
 
         session()->flash('status', '記事を更新しました！');
 
