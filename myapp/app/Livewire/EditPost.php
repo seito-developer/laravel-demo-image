@@ -46,7 +46,7 @@ class EditPost extends Component
         ];
 
         if ($this->image) {
-            $data['image_path'] = $this->image->store('posts');
+            $data['image_path'] = $this->image->store('posts', 'r2');
         }
 
         $this->post->update($data);

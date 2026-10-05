@@ -31,7 +31,7 @@ class CreatePost extends Component
             'title' => $this->title,
             'body' => $this->body,
             'user_id' => Auth::id(),
-            'image_path' => $this->image?->store('posts'),
+            'image_path' => $this->image?->store('posts', 'r2'),
         ]);
 
         $this->reset(['title', 'body', 'image']);

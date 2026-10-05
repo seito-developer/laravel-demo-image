@@ -19,7 +19,7 @@
     </div>
 
     @if ($post->image_path)
-        <img src="{{ Storage::url($post->image_path) }}" alt="{{ $post->title }}" class="w-full rounded-lg mb-6">
+        <img src="{{ Storage::disk('r2')->url($post->image_path) }}" alt="{{ $post->title }}" class="w-full rounded-lg mb-6">
     @endif
 
     <div class="text-lg leading-relaxed text-gray-800 dark:text-gray-200 mt-5">
