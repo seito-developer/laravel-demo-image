@@ -21,7 +21,7 @@ console_command = 'php /var/www/html/artisan tinker'
   SESSION_SECURE_COOKIE = 'true'
   APP_URL = 'https://test-app-siid.fly.dev'
   R2_BUCKET = 'siid-test'
-  R2_ENDPOINT = 'https://b7686a908b5294babdadb531170219ce.r2.cloudflarestorage.com/siid-test'
+  R2_ENDPOINT = 'https://b7686a908b5294babdadb531170219ce.r2.cloudflarestorage.com'
   R2_URL = 'https://pub-a4375ca53a72452ca872f132d2001209.r2.dev'
 
 [http_service]
