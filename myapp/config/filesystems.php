@@ -59,7 +59,7 @@ return [
             'throw' => false,
             'report' => false,
         ],
-
+        
         'r2' => [
             'driver' => 's3',
             'key' => env('R2_ACCESS_KEY_ID'),
